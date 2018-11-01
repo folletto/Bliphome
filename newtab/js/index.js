@@ -32,6 +32,7 @@ function createNewTabFolder(node, bookmarks, cb) {
   chrome.bookmarks.create({
     parentId: bookmarkBar.id, // create 'New tab' folder under 'Bookmarks Bar'. By default is 'Other Bookmarks'
     title: BOOKMARKS_FOLDER_NAME,
+    index: 0,
   }, function(newFolder) {
     cb(node);
   });
