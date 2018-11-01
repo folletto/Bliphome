@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+
+  "name": "Blipstart — simple new tab quick dial",
+  "version": "0.1.0",
+  "description": "Minimalist new tab quick dial start page.",
+  "author": "Davide Casali",
+
+  "icons": {
+    "16": "icon/icon16.png",
+    "32": "icon/icon32.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  },
+
+  "chrome_url_overrides": {
+    "newtab": "newtab/index.html"
+  },
+  "permissions": [
+    "bookmarks",
+    "chrome://favicon/*"
+  ],
+  "web_accessible_resources": [
+    "newtab/*"
+  ]
+}
