@@ -27,8 +27,10 @@ function searchBookmarksFolder(name, root) {
   for (let item of root) {
     if (item.title.toLowerCase() == name.toLowerCase()) {
       out = item;
+      break;
     } else if (item.children && item.children.length > 0) {
       out = searchBookmarksFolder(name, item.children);
+      if (out) break;
     }
   }
   return out;
