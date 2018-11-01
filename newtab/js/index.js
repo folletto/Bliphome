@@ -1,5 +1,7 @@
 const BOOKMARKS_FOLDER_NAME = 'New tab'; // case insensitive
 const BOOKMARKS_DOM_NODE_ID = '#shelf';
+const BOOKMARKS_BAR_FOLDER_NAME = 'Bookmarks Bar';
+let attemptToCreateNewTabFolder = true;
 
 function renderBookmarks(node) {
   chrome.bookmarks.getTree(function(bookmarks) {
@@ -15,10 +17,23 @@ function renderBookmarks(node) {
           node.innerHTML = templates.emptyFolder();
         }
       }
+    } else if (attemptToCreateNewTabFolder) {
+      attemptToCreateNewTabFolder = false;
+      createNewTabFolder(node, bookmarks, renderBookmarks);
     } else {
       node.innerHTML = templates.noFolder();
     }
 
+  });
+}
+
+function createNewTabFolder(node, bookmarks, cb) {
+  const bookmarkBar = searchBookmarksFolder(BOOKMARKS_BAR_FOLDER_NAME, bookmarks);
+  chrome.bookmarks.create({
+    parentId: bookmarkBar.id, // create 'New tab' folder under 'Bookmarks Bar'. By default is 'Other Bookmarks'
+    title: BOOKMARKS_FOLDER_NAME,
+  }, function(newFolder) {
+    cb(node);
   });
 }
 
