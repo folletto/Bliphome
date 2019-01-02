@@ -9,7 +9,7 @@ Bliphome - Google Chrome Extension
 WHAT IS BLIPHOME
 ----------------
 
-Bliphone is a minimalist new tab page with quick dial functionality for Chrome.
+Bliphome is a minimalist new tab page with quick dial functionality for Chrome.
 
 This extension works on Windows, Mac and Linux. (untested)
 
