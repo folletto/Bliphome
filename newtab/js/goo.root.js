@@ -23,7 +23,7 @@ export class Root {
     } else {
       for (let bookmark of this.bookmarkFolderNewTab.children) {
         //out += '<div>' + bookmark.url + '</div>';
-        out += goo.out(Bookmark, bookmark);
+        out += goo.render(Bookmark, bookmark);
       }
     }
 

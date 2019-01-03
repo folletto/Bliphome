@@ -12,7 +12,7 @@
  *    goo.root(Component, '#id'); // CSS selector, best use an id
  *
  * From inside a component:
- *    goo.out(Component, data); // to render another component, data can be anything
+ *    goo.render(Component, data); // to render another component, data can be anything
  *    goo.refresh(this); // to refresh the entire sub-tree from the current component down
  *    goo.onClick(function); // attach an event listener in a rendered string (remember to .bind(this))
  *
@@ -41,7 +41,7 @@ class Goo {
     }
   }
 
-  out(gooClass, data) {
+  render(gooClass, data) {
     let gooObject = new gooClass(data);
     this.currentId++;
     Object.defineProperty(gooObject, 'gooId', { value: this.currentId, enumerable: false, writable: false });
