@@ -16,6 +16,19 @@
  *    goo.refresh(this); // to refresh the entire sub-tree from the current component down
  *    goo.onClick(function); // attach an event listener in a rendered string (remember to .bind(this))
  *
+ * EXAMPLE:
+ *    class MyRootClass {
+ *      render() {
+ *        return `
+ *          <div ${goo.onClick(this.myClick.bind(this))}>
+ *            ${goo.render(MyComponentClass, this.data)}
+ *          </div>
+ *        `;
+ *      }
+ *      myClick() {
+ *        goo.refresh(this);
+ *      }
+ *    }
  */
 
 class Goo {
