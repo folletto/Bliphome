@@ -1,5 +1,5 @@
 /*
- * Goo.js v0.1
+ * Goo.js v0.1.1
  *
  * Inefficient, minimalist, JS renderer for lightweight components.
  * Try to imitate a React-inspired component structure without any extra lib.
@@ -58,7 +58,7 @@ class Goo {
     let gooObject = new gooClass(data);
     this.currentId++;
     Object.defineProperty(gooObject, 'gooId', { value: this.currentId, enumerable: false, writable: false });
-    return '<div data-goo="' + gooObject.gooId + '">' + gooObject.render() + '</div>';
+    return '<div class="' + gooObject.constructor.name.toLowerCase() + '" data-goo="' + gooObject.gooId + '">' + gooObject.render() + '</div>';
   }
 
   refresh(gooObject) {
