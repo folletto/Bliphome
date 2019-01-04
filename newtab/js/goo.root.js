@@ -3,10 +3,13 @@ import {Bookmark} from './goo.bookmark.js';
 import {Motivational} from './goo.motivational.js';
 
 const BOOKMARKS_FOLDER_NAME = 'New tab'; // case insensitive
+const ERROR_FOLDER_MISSING = Symbol('Folder missing');
+const ERROR_FOLDER_EMPTY = Symbol('Folder empty');
 
 export class Root {
   constructor() {
     this.bookmarkFolderNewTab = null;
+    this.latestError = null;
     this.countTest = 0;
   }
 
@@ -21,7 +24,9 @@ export class Root {
     let out = '';
 
     if (this.bookmarkFolderNewTab == null) {
-      this.getBookmarks();
+      if (this.latestError == ERROR_FOLDER_MISSING) out = this.renderFolderIsMissing();
+      else if (this.latestError == ERROR_FOLDER_EMPTY) out = this.renderFolderIsEmpty();
+      else this.getBookmarks();
     } else {
       for (let bookmark of this.bookmarkFolderNewTab.children) {
         //out += '<div>' + bookmark.url + '</div>';
@@ -34,6 +39,7 @@ export class Root {
 
   getBookmarks() {
     var self = this;
+    this.latestError = null;
 
     chrome.bookmarks.getTree(function(bookmarks) {
       let bookmarkFolderNewTab = self.searchBookmarksFolder(BOOKMARKS_FOLDER_NAME, bookmarks);
@@ -41,15 +47,34 @@ export class Root {
         if (bookmarkFolderNewTab.children) {
           if (bookmarkFolderNewTab.children.length > 0) {
             self.bookmarkFolderNewTab = bookmarkFolderNewTab;
-            goo.refresh(self);
           } else {
-            console.log('templates.emptyFolder()');
+            self.latestError = ERROR_FOLDER_EMPTY;
           }
         }
       } else {
-        console.log('templates.noFolder()');
+        self.latestError = ERROR_FOLDER_MISSING;
       }
+
+      goo.refresh(self);
     });
+  }
+
+  renderFolderIsEmpty() {
+    return `
+      <div class="root__error">
+        The bookmark folder 'New tab' is empty.<br/>
+        Add a bookmark to show it here.
+      </div>
+    `;
+  }
+
+  renderFolderIsMissing() {
+    return `
+      <div class="root__error">
+        No bookmark folder name 'New tab' found.<br/>
+        Open the Bookmarks Manager and create one.
+      </div>
+    `;
   }
 
   searchBookmarksFolder(name, root) {
