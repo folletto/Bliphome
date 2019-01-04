@@ -11,7 +11,7 @@ export class Root {
 
   render() {
     return `
-      <div>${this.renderBookmarks()}</div>
+      <div class="shelf">${this.renderBookmarks()}</div>
     `;
   }
 
