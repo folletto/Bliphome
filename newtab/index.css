@@ -20,12 +20,15 @@ body {
 .shelf {
   flex: 1 1 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   align-items: center;
   text-align: center;
 }
 
 .bookmark {
+  flex: 0 0 auto;
   display: inline-block;
   width: 100px;
   margin: 12px;
