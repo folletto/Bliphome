@@ -2,7 +2,7 @@ Bliphome - Google Chrome Extension
 ==================================
 
 **Minimalist new tab quick dial start page. BSD Licensed.**  
-<https://chrome.google.com/webstore/detail/todo>  
+<https://chrome.google.com/webstore/detail/nifjdhmnceooklbbcbddfinloppofbdf>  
 
 
 
@@ -17,15 +17,19 @@ This extension should work on Windows, Mac and Linux. (untested)
 USAGE
 -----
 
-The extension looks up a bookmark folder called "New tab".
-If found, it renders all the content from it inside the new tab.
+This extensions leverages your bookmarks to create a minimalist new tab.
+When first launched it will check and if necessary create a bookmark folder
+called "New tab". It then will show all the bookmarks inside that folder.
+
+As bookmarks are automatically saved by Google Chrome Sync, this
+extension automatically syncs and doesn't lock you in.
 
 
 
 KNOWN LIMITATIONS
 -----------------
 
-* Alpha version
+* No support for sub-folders.
 
 
 TODO
@@ -44,6 +48,9 @@ WILL NOT DO
 
 CHANGELOG
 ---------
+
+* **1.0.0** (4 Jan 2019)
+  * First public release.
 
 * **0.1.0** (1 Nov 2018)
   * First private release.
