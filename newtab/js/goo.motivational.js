@@ -10,6 +10,7 @@ const MOTIVATIONAL_SENTENCES = [
   'Today, have you told someone that you appreciate them?',
   'Take a step back.',
   'What\'s next?',
+  'Don\'t stop trying.'
 ];
 
 export class Motivational {
