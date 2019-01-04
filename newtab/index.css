@@ -65,3 +65,24 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.motivational {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+  color: rgba(0, 0, 0, 0.5);
+
+  opacity: 0.0;
+  animation-duration: 10s;
+  animation-name: motivational-fadein;
+}
+
+@keyframes motivational-fadein {
+  0% { opacity: 0.0; }
+  10% { opacity: 0.0; }
+  40% { opacity: 1.0; }
+  80% { opacity: 1.0; }
+  100% { opacity: 0.0; }
+}

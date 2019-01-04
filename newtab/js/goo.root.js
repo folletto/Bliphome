@@ -1,5 +1,6 @@
 import {goo} from './goo.js';
 import {Bookmark} from './goo.bookmark.js';
+import {Motivational} from './goo.motivational.js';
 
 const BOOKMARKS_FOLDER_NAME = 'New tab'; // case insensitive
 
@@ -12,6 +13,7 @@ export class Root {
   render() {
     return `
       <div class="shelf">${this.renderBookmarks()}</div>
+      ${goo.render(Motivational)}
     `;
   }
 
