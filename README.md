@@ -11,7 +11,14 @@ WHAT IS BLIPHOME
 
 Bliphome is a minimalist new tab page with quick dial functionality for Chrome.
 
-This extension works on Windows, Mac and Linux. (untested)
+This extension should work on Windows, Mac and Linux. (untested)
+
+
+USAGE
+-----
+
+The extension looks up a bookmark folder called "New tab".
+If found, it renders all the content from it inside the new tab.
 
 
 
@@ -45,7 +52,7 @@ CHANGELOG
 LICENSE
 -------
 
-  _Copyright (C) 2018, Davide Casali_  
+  _Copyright (C) 2019, Davide Casali_  
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
