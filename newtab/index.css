@@ -38,6 +38,7 @@ body {
   display: block;
   padding: 12px 8px;
   text-decoration: none;
+  letter-spacing: -0.5px;
   color: inherit;
   transition: all 200ms ease-out;
 }
