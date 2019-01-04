@@ -55,6 +55,15 @@ export class Root {
         }
       } else {
         self.latestError = ERROR_FOLDER_MISSING;
+
+        // Create bookmark folder then!
+        chrome.bookmarks.create(
+          { title: BOOKMARKS_FOLDER_NAME },
+          () => {
+            self.latestError = ERROR_FOLDER_EMPTY;
+            goo.refresh(self);
+          }
+        );
       }
 
       goo.refresh(self);
