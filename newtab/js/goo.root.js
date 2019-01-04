@@ -29,8 +29,10 @@ export class Root {
       else this.getBookmarks();
     } else {
       for (let bookmark of this.bookmarkFolderNewTab.children) {
-        //out += '<div>' + bookmark.url + '</div>';
-        out += goo.render(Bookmark, bookmark);
+        if (!bookmark.children) {
+          //out += '<div>' + bookmark.url + '</div>';
+          out += goo.render(Bookmark, bookmark);
+        }
       }
     }
 
