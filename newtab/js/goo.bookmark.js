@@ -6,21 +6,29 @@ export class Bookmark {
   }
 
   render() {
-    let extra = '';
+    let special = '';
     let url = new URL(this.bookmark.url);
     if (url.protocol === 'chrome:') {
-      extra = goo.onClick(this.onClickChrome.bind(this));
+      special = goo.onClick(this.onClickChromeURL.bind(this));
     }
 
     return `
-      <a href="${this.bookmark.url}" ${extra}>
+      <a href="${this.bookmark.url}" ${special}>
         <span class="bookmark__img"><img src="chrome://favicon/size/16@2x/${this.bookmark.url}" /></span>
         <span class="bookmark__label">${this.bookmark.title}</span>
       </a>
     `;
   }
 
-  onClickChrome() {
-    alert('\nDue to Chrome security limitations, chrome:// urls are currently unsupported.\n\nSorry!');
+  onClickChromeURL(event) {
+    let self = this;
+
+    // Necessary workaround due to Chrome security locks on `chrome:` urls
+    // See: https://github.com/folletto/Bliphome/issues/2
+    chrome.tabs.getCurrent(function(tab) {
+      chrome.tabs.update(tab.id, {url: self.bookmark.url});
+    });
+
+    event.preventDefault();
   }
 }
