@@ -49,6 +49,10 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.0.1** (6 Jan 2019)
+  * Manual handling of 'chrome://' bookmarks to work around Chrome sandbox.
+  * If 'New tab' folder is empty, show a button to open the Bookmarks Manager.
+
 * **1.0.0** (4 Jan 2019)
   * First public release.
 
