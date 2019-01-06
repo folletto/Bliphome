@@ -35,7 +35,6 @@ KNOWN LIMITATIONS
 TODO
 ----
 
-* Create "New tab" bookmark folder automatically if not found
 * Add a way to manually add bookmarks
 * Goo: should support multiple "roots"
 
