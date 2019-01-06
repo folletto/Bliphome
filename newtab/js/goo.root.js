@@ -70,22 +70,36 @@ export class Root {
     });
   }
 
-  renderFolderIsEmpty() {
+  renderFolderIsMissing() {
     return `
       <div class="root__error">
-        The bookmark folder 'New tab' is empty.<br/>
-        Add a bookmark to show it here.
+        <p>
+          No bookmark folder name '${BOOKMARKS_FOLDER_NAME}' found.<br/>
+          Open the Bookmarks Manager and create one.
+        </p>
+        <button class="mdc-button" ${goo.onClick(this.onClickBookmarksManager.bind(this))}>Open bookmarks manager</button>
       </div>
     `;
   }
 
-  renderFolderIsMissing() {
+  renderFolderIsEmpty() {
+    console.log(this.bookmarkFolderNewTab)
     return `
       <div class="root__error">
-        No bookmark folder name 'New tab' found.<br/>
-        Open the Bookmarks Manager and create one.
+        <p>
+          The bookmark folder '${BOOKMARKS_FOLDER_NAME}' is empty.<br/>
+          Open the Bookmarks Manager and add new bookmarks inside '${BOOKMARKS_FOLDER_NAME}'.
+        </p>
+        <button class="mdc-button" ${goo.onClick(this.onClickBookmarksManager.bind(this))}>Open bookmarks manager</button>
       </div>
     `;
+  }
+
+  onClickBookmarksManager(event) {
+    // Necessary workaround due to Chrome security locks on `chrome:` urls
+    chrome.tabs.getCurrent(function(tab) {
+      chrome.tabs.update(tab.id, {url: 'chrome://bookmarks'});
+    });
   }
 
   searchBookmarksFolder(name, root) {
