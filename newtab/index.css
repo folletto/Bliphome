@@ -116,3 +116,25 @@ body {
   background-color: rgb(66, 133, 244);
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(32, 33, 36);
+  }
+
+  .bookmark>a:hover {
+    background-color: rgb(50, 54, 57);
+  }
+
+  .bookmark__label {
+    color: rgb(241, 243, 244);
+  }
+
+  .motivational {
+    color: rgba(176, 202, 212, 0.5);
+  }
+
+  .root__error>p {
+    color: white;
+  }
+}
