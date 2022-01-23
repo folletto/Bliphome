@@ -48,6 +48,10 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+
+* **1.1.0** (23 Jan 2021)
+  * Added dark mode (props @iam-robin)
+
 * **1.0.1** (6 Jan 2019)
   * Manual handling of 'chrome://' bookmarks to work around Chrome sandbox.
   * If 'New tab' folder is empty, show a button to open the Bookmarks Manager.
@@ -63,7 +67,7 @@ CHANGELOG
 LICENSE
 -------
 
-  _Copyright (C) 2019, Davide Casali_  
+  _Copyright (C) 2021, Erin Casali_  
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
