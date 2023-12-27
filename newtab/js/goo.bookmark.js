@@ -7,6 +7,7 @@ export class Bookmark {
 
   render() {
     let special = '';
+    let favicon = `chrome-extension://${chrome.runtime.id}/_favicon/?pageUrl=${encodeURIComponent(this.bookmark.url)}&size=32`;
     let url = new URL(this.bookmark.url);
     if (url.protocol === 'chrome:') {
       special = goo.onClick(this.onClickChromeURL.bind(this));
@@ -14,7 +15,7 @@ export class Bookmark {
 
     return `
       <a href="${this.bookmark.url}" ${special}>
-        <span class="bookmark__img"><img src="chrome://favicon/size/16@2x/${this.bookmark.url}" /></span>
+        <span class="bookmark__img"><img src="${favicon}" /></span>
         <span class="bookmark__label">${this.bookmark.title}</span>
       </a>
     `;

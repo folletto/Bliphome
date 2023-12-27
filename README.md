@@ -49,6 +49,9 @@ CHANGELOG
 ---------
 
 
+* **1.1.1** (27 Dec 2023)
+  * Updated to Manifest V3
+
 * **1.1.0** (23 Jan 2021)
   * Added dark mode (props @iam-robin)
 
@@ -67,7 +70,7 @@ CHANGELOG
 LICENSE
 -------
 
-  _Copyright (C) 2021, Erin Casali_  
+  _Copyright (C) 2023, Erin Casali_  
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 

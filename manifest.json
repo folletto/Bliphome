@@ -1,10 +1,10 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
 
   "name": "Bliphome: simple new tab quick dial",
   "short_name": "Bliphome",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Minimalist new tab quick dial start page.",
   "author": "Erin Casali",
 
@@ -20,9 +20,12 @@
   },
   "permissions": [
     "bookmarks",
-    "chrome://favicon/*"
+    "favicon"
   ],
   "web_accessible_resources": [
-    "newtab/*"
+    {
+      "resources": [ "newtab/*", "_favicon/*" ],
+      "matches": [ "<all_urls>" ]
+    }
   ]
 }
